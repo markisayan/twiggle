@@ -16,4 +16,4 @@ services:
       dockerfile: ./Dockerfile
     image: "mark/twiggle-front"
     ports:
-      - "3000:80"
+      - "80:80"
