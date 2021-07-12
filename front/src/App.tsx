@@ -11,8 +11,10 @@ const App = () => {
   const [ tweets, setTweets ] = useState<Array<any>> ( [] );
   const [ loading, setLoading ] = useState ( false );
   const [ source, setSource ] = useState ( axios.CancelToken.source );
+  const [ firstLoad, setFirstLoad ] = useState ( true );
 
   const fetchTweets = async () => {
+    setLoading ( true );
     try {
       const result = await axios.get ( `${ process.env.REACT_APP_BACKEND_ADDRESS }/tweets`, {
         cancelToken: source.token,
@@ -28,7 +30,10 @@ const App = () => {
   };
 
   useEffect ( () => {
-    setLoading ( true );
+    if ( firstLoad ) {
+      setFirstLoad ( false );
+      return;
+    }
     fetchTweets ();
   }, [ source ] );
 
