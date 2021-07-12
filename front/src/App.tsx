@@ -11,7 +11,6 @@ const App = () => {
   const [ tweets, setTweets ] = useState<Array<any>> ( [] );
   const [ loading, setLoading ] = useState ( false );
   const [ source, setSource ] = useState ( axios.CancelToken.source );
-  const [ firstRun, setFirstRun ] = useState ( true );
 
   const fetchTweets = async () => {
     try {
@@ -31,13 +30,12 @@ const App = () => {
   useEffect ( () => {
     setLoading ( true );
     fetchTweets ();
-  }, [ source, firstRun ] );
+  }, [ source ] );
 
   const onSearch = async () => {
     if ( source ) {
       source.cancel ();
     }
-    setFirstRun ( false );
     setSource ( axios.CancelToken.source () );
   };
 
@@ -47,7 +45,7 @@ const App = () => {
         <img src={ logo } className="logo" alt="logo" />
         <SearchBar onChange={ ( e ) => setSearchText ( e.target.value ) } value={ searchText } onSubmit={ onSearch } />
         <Button text="Twiggle Search" onClick={ onSearch } />
-        <div className="results">{ firstRun ? '' : `${ tweets.length } results` }</div>
+        <div className="results">{ tweets.length ? `${ tweets.length } results` : '' }</div>
         <TweetSection tweets={ tweets } loading={ loading } />
       </div>
     </div>
