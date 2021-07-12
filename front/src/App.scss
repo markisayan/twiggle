@@ -1,0 +1,39 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .logo {
+    height: 92px;
+    pointer-events: none;
+  }
+
+  .appContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+
+    .results{
+      margin-top: 20px;
+      font-size: 13px;
+      color: gray;
+    }
+  }
+  animation-name: appear;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

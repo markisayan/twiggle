@@ -1,0 +1,46 @@
+.TweetPlaceholder {
+  flex: 1;
+
+  .head, .body, .footer {
+    margin-bottom: 10px;
+  }
+
+  .head {
+    height: 20px;
+    width: 300px;
+  }
+
+  .body {
+    height: 80px;
+    width: 50vw;
+  }
+
+  .footer {
+    height: 15px;
+    width: 200px;
+  }
+
+  border-bottom: 1px solid rgb(220, 220, 220);
+  padding: 10px 0;
+
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: -600px 0
+    }
+    100% {
+      background-position: 600px 0
+    }
+  }
+
+  .animate {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 1200px 104px;
+    position: relative;
+  }
+}

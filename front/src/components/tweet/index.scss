@@ -1,0 +1,58 @@
+.Tweet {
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(220, 220, 220);
+
+  .userInfo {
+    .handle, .date, .name {
+      margin-right: 10px;
+    }
+
+    .handle, .date {
+      color: rgb(83, 100, 113);
+      font-size: 14px;
+    }
+
+    .name {
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .tweetText {
+    margin: 10px 0;
+    font-size: 20px;
+    max-width: 50vw;
+
+    a {
+      color: black;
+    }
+  }
+
+  .tweetInfo {
+    color: rgb(109, 109, 109);
+    font-size: 15px;
+  }
+
+  animation-name: appear;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  backend:
+    env_file:
+      "./back/.env"
+    build:
+      context: ./back
+      dockerfile: ./Dockerfile
+    image: "mark/twiggle-back"
+    ports:
+      - "3001:3001"
+  frontend:
+    build:
+      context: ./front
+      dockerfile: ./Dockerfile
+    image: "mark/twiggle-front"
+    ports:
+      - "3000:80"
